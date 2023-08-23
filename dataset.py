@@ -11,9 +11,7 @@ class ReverseSequenceDataset(Dataset):
     
     def __getitem__(self, idx):
         length = torch.randint(1, self.max_length + 1, (1, )).item()
-        sequence = torch.randperm(self.max_length)[:length]
+        sequence = torch.randperm(self.max_length)[: length]
         reversed_sequence = torch.flip(sequence, [0])
         return sequence, reversed_sequence
 
-dataset = ReverseSequenceDataset(10000, 10)
-dataloader = DataLoader(dataset, batch_size = 32, shuffle = True)

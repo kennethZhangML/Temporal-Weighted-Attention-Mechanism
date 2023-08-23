@@ -79,5 +79,4 @@ if __name__ == "__main__":
     model = TransformerBlock(d_model = 512, num_heads = 8, d_ff = 2048)
     x = torch.randn(16, 10, 512)
     output = model(x)
-
     print(output)

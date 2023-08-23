@@ -10,6 +10,7 @@ class ReverseSequenceModel(nn.Module):
         self.embedding = nn.Embedding(vocab_size, d_model)
         self.transformer_block = TransformerBlock(d_model, num_heads, d_ff)
         self.use_twa = use_twa
+        
         if self.use_twa:
             self.transformer_block.attn.lambda_ = nn.Parameter(torch.tensor(0.5))
         self.fc = nn.Linear(d_model, vocab_size)
